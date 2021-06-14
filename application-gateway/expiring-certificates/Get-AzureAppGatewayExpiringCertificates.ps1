@@ -27,7 +27,7 @@ $results.Data | ForEach-Object {
     $record.sslCertificates | ForEach-Object {
         $sslCertRecord = $_
         if (-not $_.properties.publicCertData) {
-            $msg = 'Certificate {0} is linked to Key Vault secret {1}. Scanning is not supported on this scenario. You can leverage Azure Policy to do so.' -f $_.name, $_.properties.keyVaultSecretId
+            $msg = 'Certificate {0} is linked to Key Vault secret: {1}. Certificate scanning is not supported in this scenario. You can leverage Azure Policy to do so.' -f $_.name, $_.properties.keyVaultSecretId
             Write-Warning $msg -Verbose
         }
         else {
