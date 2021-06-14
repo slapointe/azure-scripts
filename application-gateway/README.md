@@ -5,7 +5,7 @@ Did you ever had developers or engineers coming to your desk in panic realizing 
 ## Requirements
 Tested with Azure PowerShell Az v1.x.x
 
-Tested with Azure PowerShell Az.ResourceGraph module v0.7.6
+Tested with Azure PowerShell Az.ResourceGraph module v0.10.0
 
 ## The problematic
 Did you ever had developers or engineers coming to your desk in panic realizing their Azure Application Gateway' certificates expired without them knowing it in advance. Causing them downtime in their release pipeline, dev or worst, their production environment!

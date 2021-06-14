@@ -3,13 +3,11 @@
 You'll find in this function an easy way to extract the outbound IP addresses information used by all your App Services in your subscriptions by using the Azure Resource Graph, it is very fast compared to the old version scanning all subscription one at a time (50x faster for me)
 
 ## Requirements
-Tested with AzureRM.Profile Version 3.2.x & AzureRM.Websites 3.2.x
-
-Tested with AzureRM.Profile Version 5.8.x & AzureRM.Websites 5.2.x
+Tested with Az.Accounts Version 2.2.x & Az.Websites 2.5.X
 
 ## Usage
 ```powershell
-Login-AzureRmAccount 
+Connect-AzAccount 
  
 .\Get-AppServiceWebAppsOutboundIpAddresses.ps1 -SubscriptionName 'mysub1','mysub2' -IncludePossibleOutputIpAddresses
 ```
