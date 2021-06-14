@@ -29,10 +29,17 @@ $queryParams = @{
 if($matchedSubscriptions) {
     $queryParams.Subscription = $matchedSubscriptions.Id
 }
-$webApps = Search-AzGraph @queryParams
+
+$webApps = @()
+do {
+    $webApps += Search-AzGraph @queryParams
+    if($webApps.SkipToken) {
+        $queryParams.SkipToken = $webApps.SkipToken
+    }    
+} while ($webApps.SkipToken)
 
 $ipMatch = @(
-    $webApps | % {
+    $webApps.Data | % {
         $webAppName = $_.name
         $ipAddresses = @($_.outboundIpAddresses -split ',' | % { @{ IpAddress = $_; Type='Outbound' } })
         if($IncludePossibleOutputIpAddresses) {
