@@ -10,9 +10,8 @@ $ErrorActionPreference = 'Stop'
 $webApps = @()
 $SubscriptionName | % {
     Write-Host ('Switching to subscription {0}' -f $_)
-    $subContext = Set-AzureRmContext -SubscriptionName  $_
-    $webApps += Get-AzureRmWebApp
-
+    $subContext = Set-AzContext -SubscriptionName  $_
+    $webApps += Get-AzWebApp
 }
 
 $ipMatch = @(

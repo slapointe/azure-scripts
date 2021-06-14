@@ -3,7 +3,7 @@
 You'll find in this function an easy way to extract the outbound IP addresses information used by all your App Services in your subscriptions by using the Azure Resource Graph, it is very fast compared to the old version scanning all subscription one at a time (50x faster for me)
 
 ## Requirements
-Tested with Az.ResourceGraph Version 0.7.x
+Tested with Az.ResourceGraph Version 0.10.x
 
 ## Usage
 ```powershell
