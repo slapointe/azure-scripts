@@ -13,7 +13,7 @@ $appWithCredentials += $applications | Sort-Object -Property DisplayName | % {
     $application = $_
     $sp = $servicePrincipals | ? ApplicationId -eq $application.ApplicationId
     Write-Verbose ('Fetching information for application {0}' -f $application.DisplayName)
-    $application | Get-AzADAppCredential -ErrorAction SilentlyContinue | Select-Object -Property @{Name='DisplayName'; Expression={$application.DisplayName}}, @{Name='ObjectId'; Expression={$application.Id}}, @{Name='ApplicationId'; Expression={$application.ApplicationId}}, @{Name='KeyId'; Expression={$_.KeyId}}, @{Name='Type'; Expression={$_.Type}},@{Name='StartDate'; Expression={$_.StartDate -as [datetime]}},@{Name='EndDate'; Expression={$_.EndDate -as [datetime]}}
+    $application | Get-AzADAppCredential -ErrorAction SilentlyContinue | Select-Object -Property @{Name='DisplayName'; Expression={$application.DisplayName}}, @{Name='ObjectId'; Expression={$application.Id}}, @{Name='ApplicationId'; Expression={$application.ApplicationId}}, @{Name='KeyId'; Expression={$_.KeyId}}, @{Name='Type'; Expression={$_.Type}},@{Name='StartDate'; Expression={$_.startDateTime -as [datetime]}},@{Name='EndDate'; Expression={$_.endDateTime -as [datetime]}}
   }
 
 Write-Host 'Validating expiration data...'
